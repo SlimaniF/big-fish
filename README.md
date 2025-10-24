@@ -1,5 +1,7 @@
 # Big-FISH
 
+**Fork Notes : update import for segmentation module for compatibility with python >3.9**
+
 [![PyPI version](https://badge.fury.io/py/big-fish.svg)](https://badge.fury.io/py/big-fish)
 [![Build Status](https://travis-ci.com/fish-quant/big-fish.svg?branch=master)](https://travis-ci.com/fish-quant/big-fish)
 [![Documentation Status](https://readthedocs.org/projects/big-fish/badge/?version=stable)](https://big-fish.readthedocs.io/en/latest/?badge=stable)

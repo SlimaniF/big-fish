@@ -14,7 +14,7 @@ from skimage.morphology import binary_opening
 import skimage
 from sklearn.utils.fixes import parse_version
 if parse_version(skimage.__version__) < parse_version("0.19.0"):
-    from skimage.morphology.selem import disk
+    from skimage.morphology import disk
 else:
     from skimage.morphology.footprints import disk
 
