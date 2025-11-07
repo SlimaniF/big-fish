@@ -13,7 +13,8 @@ import warnings
 import numpy as np
 import pandas as pd
 
-from skimage import io
+import tifffile
+import imageio.v3 as iio
 from .utils import check_array
 from .utils import check_parameter
 
@@ -46,7 +47,12 @@ def read_image(path, sanity_check=False):
         sanity_check=bool)
 
     # read image
-    image = io.imread(path)
+    if path.endswith((".tiff", ".tif")) :
+        image = tifffile.imread(path)
+    elif path.endswith((".png",".jpg",".jpeg")) :
+        image = iio.imread(path)
+    else :
+        raise ValueError(f"Incorrect extension for path : {path}")
 
     # check the output image
     if sanity_check:
@@ -360,7 +366,7 @@ def save_image(image, path, extension="tif"):
     # save image without warnings
     with warnings.catch_warnings():
         warnings.filterwarnings(action="ignore", category=UserWarning)
-        io.imsave(path, image)
+        iio.imwrite(path, image)
 
 
 def save_array(array, path):
