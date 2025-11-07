@@ -330,8 +330,8 @@ def _get_centrosome_distance_map(centrosome_coord, cell_mask):
         Distance map from the centrosome with shape (y, x).
 
     """
-    if centrosome_coord.size == 3:
-        centrosome_coord_2d = centrosome_coord[1:]
+    if centrosome_coord.shape[1] == 3:
+        centrosome_coord_2d = centrosome_coord[:, 1:]
     else:
         centrosome_coord_2d = centrosome_coord.copy()
 
