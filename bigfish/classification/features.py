@@ -543,7 +543,7 @@ def features_protrusion(
     # apply opening operator (3000 nanometers) and count the loss of RNAs
     size = int(3000 / voxel_size_yx)
     s = disk(size, dtype=bool)
-    mask_cell_opened = binary_opening(cell_mask, selem=s)
+    mask_cell_opened = binary_opening(cell_mask, footprint=s)
     mask_cell_opened[nuc_mask] = True
     protrusion_area = cell_area - mask_cell_opened.sum()
 

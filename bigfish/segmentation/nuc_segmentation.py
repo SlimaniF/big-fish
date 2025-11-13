@@ -244,7 +244,7 @@ def remove_segmented_nuc(image, nuc_mask, size_nuclei=2000):
 
     # reconstruct the missing nuclei by dilation
     s = disk(1).astype(original_dtype)
-    image_reconstructed = reconstruction(diff, image, selem=s)
+    image_reconstructed = reconstruction(diff, image, footprint=s)
     image_reconstructed = image_reconstructed.astype(original_dtype)
 
     # subtract the reconstructed image from the original one
